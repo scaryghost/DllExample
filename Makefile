@@ -1,3 +1,5 @@
+export LD_LIBRARY_PATH=.
+
 MAIN=main.cpp
 MAIN_OBJ=dllexample
 
@@ -10,3 +12,6 @@ all:
 
 clean:
 	rm -f $(MAIN_OBJ)
+
+run:
+	./$(MAIN_OBJ) $(ARGS)

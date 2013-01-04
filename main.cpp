@@ -13,7 +13,7 @@ typedef Shape* (*ShapeFactory)();
 int main(int argc, char **argv) {
     void *dllHandle;
 
-    dllHandle = dlopen ("shapes.so", RTLD_LAZY);
+    dllHandle = dlopen (argv[1], RTLD_LAZY);
     if (!dllHandle) {
         cerr << dlerror() << endl;
         return 1;
@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
 
     cout << "Shape: " << instance->whoAmI() << endl;
     cout << "Area: " << instance->area() << endl;
-    cout << "Perimeter" << instance->perimeter() << endl;
+    cout << "Perimeter: " << instance->perimeter() << endl;
     
     dlclose(dllHandle);
     return 0;
