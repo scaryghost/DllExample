@@ -13,9 +13,11 @@ all:
 clean:
 	rm -f $(MAIN_OBJ)
 	make -f Shapes/Circle/src/Makefile clean
+	make -f Shapes/Rectangle/src/Makefile clean
 
 run:
 	./$(MAIN_OBJ) $(ARGS)
 
 libs: Base/Shape.h
 	make -f Shapes/Circle/src/Makefile
+	make -f Shapes/Rectangle/src/Makefile
