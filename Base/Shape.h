@@ -8,7 +8,7 @@ class Shape {
 public:
     virtual double area()= 0;
     virtual double perimeter()= 0;
-    virtual void whoAmI()= 0;
+    virtual const char* whoAmI()= 0;
 };  //class Shape
 
 }   //namespace dllexample
