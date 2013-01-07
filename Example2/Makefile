@@ -12,11 +12,11 @@ main:
 
 lib1:
 	g++ -I. $(CPP_FLAGS) -fPIC -c Triangle.cpp -o $(OBJ) -DTRIANGLE_DLL_EXPORTS
-	g++ -shared -Wl,-soname,$(LIB_NAME) -o $(LIB_NAME) $(OBJ)
+	g++ -shared -Wl,-soname,$(LIB_NAME).1 -o $(LIB_NAME).1.0.0 $(OBJ)
 
 lib2:
 	g++ -I. $(CPP_FLAGS) -fPIC -c Triangle2.cpp -o $(OBJ) -DTRIANGLE_DLL_EXPORTS
-	g++ -shared -Wl,-soname,$(LIB_NAME) -o $(LIB_NAME) $(OBJ)
+	g++ -shared -Wl,-soname,$(LIB_NAME).1 -o $(LIB_NAME).1.0.1 $(OBJ)
 
 run:
 	./example2
