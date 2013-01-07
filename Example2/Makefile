@@ -6,9 +6,17 @@ BIN=example2
 CPP_FLAGS=-std=c++0x -Wall -Werror -DTRIANGLE_DLL
 
 all:
+
+main:
+	g++ -I. -L. $(CPP_FLAGS) main.cpp -o $(BIN) -ltriangle
+
+lib1:
 	g++ -I. $(CPP_FLAGS) -fPIC -c Triangle.cpp -o $(OBJ) -DTRIANGLE_DLL_EXPORTS
 	g++ -shared -Wl,-soname,$(LIB_NAME) -o $(LIB_NAME) $(OBJ)
-	g++ -I. -L. $(CPP_FLAGS) main.cpp -o $(BIN) -ltriangle
+
+lib2:
+	g++ -I. $(CPP_FLAGS) -fPIC -c Triangle2.cpp -o $(OBJ) -DTRIANGLE_DLL_EXPORTS
+	g++ -shared -Wl,-soname,$(LIB_NAME) -o $(LIB_NAME) $(OBJ)
 
 run:
 	./example2
